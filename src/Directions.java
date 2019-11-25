@@ -16,7 +16,7 @@ public class Directions {
         List<String> cities = new ArrayList<String>();
    //     String username = "admin";
    //     String password = "admin";
-       // String url = "http://va1ihgdweb105-nat.ihgext.global:4502/libs/wcm/core/content/sites/createpagewizard/_jcr_content";
+       // String url = "http://va1*company*dweb105-nat.*company*ext.global:4502/libs/wcm/core/content/sites/createpagewizard/_jcr_content";
    //     String path = "/content/intercontinental/hotels/en_US/";
     //    String cityName = "porto";
     //    String hotelCode = "prtha";
@@ -29,12 +29,12 @@ public class Directions {
         String output = "";
         try {
 
-            // URL url = new URL("https://www.ihg.com/guestapi/v1/crowneplaza/us/en/web/hoteldetails?hotelcode=DTTYZ");
-            URL url = new URL("https://int-api.ihg.com/channels/direct/hotelsearch/v1/activehotels?brandCode=ic");
+            // URL url = new URL("https://www.*company*.com/guestapi/v1/crowneplaza/us/en/web/hoteldetails?hotelcode=DTTYZ");
+            URL url = new URL("https://int-api.*company*.com/channels/direct/hotelsearch/v1/activehotels?brandCode=ic");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
-            conn.setRequestProperty("x-ihg-api-key", "Az7F28mBx20mgFDY8pUa6A9LAXsQykJg");
+            conn.setRequestProperty("x-*company*-api-key", "Az7F28mBx20mgFDY8pUa6A9LAXsQykJg");
             if (conn.getResponseCode() != 200) {
                 throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
             }
@@ -48,12 +48,12 @@ public class Directions {
                 for (int i = 0; i < cityCodes.length; i++) {
            //         System.out.println(cityCodes[i]);
                     cityCodes[i] = cityCodes[i].substring(1, cityCodes[i].length() - 1);
-                    URL urlHotelCode = new URL("https://www.ihg.com/guestapi/v1/crowneplaza/us/en/web/hoteldetails?hotelcode=" + cityCodes[i]);
-                    //     URL url = new URL("https://int-api.ihg.com/channels/direct/hotelsearch/v1/activehotels?brandCode=ic");
+                    URL urlHotelCode = new URL("https://www.*company*.com/guestapi/v1/crowneplaza/us/en/web/hoteldetails?hotelcode=" + cityCodes[i]);
+                    //     URL url = new URL("https://int-api.*company*.com/channels/direct/hotelsearch/v1/activehotels?brandCode=ic");
                     HttpURLConnection conn2 = (HttpURLConnection) urlHotelCode.openConnection();
                     conn2.setRequestMethod("GET");
                     conn2.setRequestProperty("Accept", "application/json");
-                    //   conn.setRequestProperty("x-ihg-api-key", "Az7F28mBx20mgFDY8pUa6A9LAXsQykJg");
+                    //   conn.setRequestProperty("x-*company*-api-key", "Az7F28mBx20mgFDY8pUa6A9LAXsQykJg");
                     if (conn2.getResponseCode() != 200) {
                         System.out.println("-------!!! ISSUE------------- didn't receive response code for " + cityCodes[i]);
                         continue;
@@ -83,13 +83,13 @@ public class Directions {
      //   System.out.println(cities.size());
      //   cities.forEach(name -> System.out.println(name.toLowerCase()));
     //    executeCurlCommand(parentPath);
-        //  curl -u admin:admin 'http://va1ihgdweb105-nat.ihgext.global:4502/libs/wcm/core/content/sites/createpagewizard/_jcr_content' --data 'parentPath=/content/intercontinental/hotels/en_US/london/lonhb/hoteldetail&template=/apps/intercontinental/templates/hoteldetail/directions&template@Delete=&pageName=Directions&./jcr:title=Directions&./cq:tags%40TypeHint=String%5B%5D&./cq:tags%40Delete=&./pageTitle=&./navTitle=&./sling:alias=&:cq_csrf_token=eyJleHAiOjE1NjcxODM4NjUsImlhdCI6MTU2NzE4MzI2NX0.f3kIwGhiEagjKPAte1NkBquh6rnu3U8i3xeJcLQTefU' --compressed --insecure
+        //  curl -u admin:admin 'http://va1*company*dweb105-nat.*company*ext.global:4502/libs/wcm/core/content/sites/createpagewizard/_jcr_content' --data 'parentPath=/content/intercontinental/hotels/en_US/london/lonhb/hoteldetail&template=/apps/intercontinental/templates/hoteldetail/directions&template@Delete=&pageName=Directions&./jcr:title=Directions&./cq:tags%40TypeHint=String%5B%5D&./cq:tags%40Delete=&./pageTitle=&./navTitle=&./sling:alias=&:cq_csrf_token=eyJleHAiOjE1NjcxODM4NjUsImlhdCI6MTU2NzE4MzI2NX0.f3kIwGhiEagjKPAte1NkBquh6rnu3U8i3xeJcLQTefU' --compressed --insecure
     }
 
     static void executeCurlCommand(String parentPath){
         try{
             System.out.println("path-> " + parentPath );
-            ProcessBuilder pb = new ProcessBuilder("curl", "-u", "admin:admin", "http://va1ihgdweb118-nat.ihgext.global:4503/libs/wcm/core/content/sites/createpagewizard/_jcr_content", "--data", parentPath);
+            ProcessBuilder pb = new ProcessBuilder("curl", "-u", "admin:admin", "http://va1*company*dweb118-nat.*company*ext.global:4503/libs/wcm/core/content/sites/createpagewizard/_jcr_content", "--data", parentPath);
             pb.redirectErrorStream(true);
             Process p = pb.start();
 
