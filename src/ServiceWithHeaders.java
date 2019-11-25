@@ -10,11 +10,11 @@ public class ServiceWithHeaders {
     public static void main(String[] args) {
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
-        String url = "https://int-api.ihg.com/channels/direct/hotelsearchtmp/v1/activehotels?brandCode=va";
+        String url = "https://int-api.*company*.com/channels/direct/hotelsearchtmp/v1/activehotels?brandCode=va";
         String responseContent = null;
         System.out.println("testing now is fine ");
         HttpGet request = new HttpGet(url);
-        request.setHeader("x-ihg-api-key","Az7F28mBx20mgFDY8pUa6A9LAXsQykJg");//x-ihg-api-key=Az7F28mBx20mgFDY8pUa6A9LAXsQykJg
+        request.setHeader("x-*company*-api-key","Az7F28mBx20mgFDY8pUa6A9LAXsQykJg");//x-*company*-api-key=Az7F28mBx20mgFDY8pUa6A9LAXsQykJg
 
        try{
            CloseableHttpResponse response = httpClient.execute(request);
